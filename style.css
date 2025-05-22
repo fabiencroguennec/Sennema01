@@ -1,82 +1,42 @@
-/* Base */
-body {
-  margin: 0;
-  font-family: sans-serif;
-  line-height: 1.6;
-  background: #f0f4f8;
-  color: #333;
+/* Ajouts spécifiques au menu burger */
+
+.menu-toggle {
+  display: none;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  gap: 6px;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.menu-icon span {
+  height: 3px;
+  background: #2f855a;
+  border-radius: 3px;
 }
 
-/* Navbar */
-.navbar {
-  background: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid #ddd;
-}
-
-.logo {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #2f855a;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links a:hover {
-  color: #2f855a;
-}
-
-/* Sections */
-.section {
-  padding: 4rem 2rem;
-  max-width: 900px;
-  margin: auto;
-}
-
-.hero {
-  background: linear-gradient(to right, #c6f6d5, #9ae6b4);
-  text-align: center;
-  padding: 6rem 2rem;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2rem;
-  background: #e6fffa;
-  margin-top: 2rem;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: flex-start;
+/* Responsive menu */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: flex;
   }
 
-  .navbar {
+  .nav-links {
+    display: none;
     flex-direction: column;
-    align-items: flex-start;
+    width: 100%;
+    background: white;
+    position: absolute;
+    top: 64px; /* hauteur du header */
+    left: 0;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .menu-toggle:checked + .menu-icon + .nav-links {
+    display: flex;
   }
 }
